@@ -1,6 +1,6 @@
 module github.com/kamchai-n/api-student-home-visit
 
-go 1.16
+go 1.12
 
 require (
 	github.com/alecthomas/template v0.0.0-20190718012654-fb15b899a751 // indirect
@@ -22,6 +22,7 @@ require (
 	github.com/mailru/easyjson v0.7.7 // indirect
 	github.com/spf13/viper v1.9.0 // indirect
 	github.com/tidwall/gjson v1.9.1 // indirect
+	github.com/tools/godep v0.0.0-20180126220526-ce0bfadeb516 // indirect
 	github.com/valyala/fasthttp v1.30.0 // indirect
 	github.com/xordataexchange/crypt v0.0.3-0.20170626215501-b2862e3d0a77 // indirect
 	github.com/xuri/excelize/v2 v2.4.1 // indirect

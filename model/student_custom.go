@@ -9,6 +9,7 @@ import (
 
 type StudentCustom struct {
 	ID           uuid.UUID `gorm:"primaryKey; type:uuid; default:uuid_generate_v4();" json:"id"`
+	GroupId      *string   `json:"group_id"`
 	StudentId    string    `gorm:"not null" json:"student_id"`
 	StudentName  string    `gorm:"not null" json:"student_name"`
 	StudentPhone *string   `gorm:"null" json:"student_phone"`

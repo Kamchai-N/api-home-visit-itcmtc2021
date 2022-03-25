@@ -23,6 +23,7 @@ func (s studentRepository) CreateStudentFromExcel(stdForm []domain.StudentForm) 
 	var response []domain.ResponseCreateStudentFromExcel
 	for _, dataStd := range stdForm {
 		studentCustom := model.StudentCustom{
+			GroupId:      dataStd.GroupId,
 			StudentId:    dataStd.StudentId,
 			StudentName:  dataStd.StudentName,
 			StudentPhone: dataStd.StudentPhone,
@@ -81,6 +82,7 @@ func (s studentRepository) CreateStudent(stdForm domain.StudentForm) (domain.Res
 	var addressStdAll []model.AddressStudent
 	var response domain.ResponseCreateStudentFromExcel
 	studentCustom := model.StudentCustom{
+		GroupId:      stdForm.GroupId,
 		StudentId:    stdForm.StudentId,
 		StudentName:  stdForm.StudentName,
 		StudentPhone: stdForm.StudentPhone,
@@ -137,6 +139,10 @@ func (s studentRepository) GetInfoStudent(req *domain.RequestGetAll, user_id uui
 
 	tx := s.db.Preload("AddressStudent").Preload("ParentStudent")
 	if req != nil {
+		if req.GroupId != nil {
+			tx.Where("group_id LIKE '%" + *req.GroupId + "%'")
+		}
+
 		if req.StudentId != nil {
 			tx.Where("student_id LIKE '%" + *req.StudentId + "%'")
 		}

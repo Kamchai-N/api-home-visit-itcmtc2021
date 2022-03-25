@@ -62,7 +62,7 @@ func InitDatabase() *gorm.DB {
 		panic(err)
 	}
 
-	// autoMigrate(db)
+	autoMigrate(db)
 
 	sqlDB.SetMaxIdleConns(10)
 	sqlDB.SetMaxOpenConns(100)

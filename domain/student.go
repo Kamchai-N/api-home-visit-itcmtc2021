@@ -6,6 +6,7 @@ import (
 )
 
 type StudentForm struct {
+	GroupId            *string   `json:"group_id"`
 	StudentId          string    `json:"student_id"`
 	StudentName        string    `json:"student_name"`
 	StudentPhone       *string   `json:"student_phone"`
@@ -40,6 +41,7 @@ type RequestDeleteStudent struct {
 }
 
 type RequestGetAll struct {
+	GroupId            *string `json:"group_id"`
 	StudentId          *string `json:"student_id"`
 	StudentLevel       *[]uint `json:"student_level"`
 	AddressNo          *string `json:"address_no"`

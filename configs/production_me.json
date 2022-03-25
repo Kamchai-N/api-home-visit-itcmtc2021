@@ -1,0 +1,15 @@
+{
+    "post": "5500",
+    "database": {
+        "post": "5432",
+        "host": "174.138.31.36",
+        "username": "admin",
+        "password": "kamchai@2022",
+        "databaseName": "home-visit"
+    },
+    "token": {
+        "secretKeyJWT": "^8s00ppe83874eehome_visit@ITCMTC[!?2021&*$%x&]",
+        "lifeTime": "999h"
+    },
+    "apiVersion": "v1"
+}

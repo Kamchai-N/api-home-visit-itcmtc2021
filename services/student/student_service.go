@@ -60,32 +60,33 @@ func (s studentService) NewStudentFromExcel(file *multipart.FileHeader, createdB
 
 		var student_level uint
 
-		if row[4] == "ป.ตรี" || row[4] == "ตรี" || row[4] == "ปริญญาตรี" || row[4] == "49" {
+		if row[5] == "ป.ตรี" || row[5] == "ตรี" || row[5] == "ปริญญาตรี" || row[5] == "49" {
 			student_level = 49
-		} else if row[4] == "ปวส." || row[4] == "ปวส" || row[4] == "ประกาศนียบัตรวิชาชีพชั้นสูง" || row[4] == "39" {
+		} else if row[5] == "ปวส." || row[5] == "ปวส" || row[5] == "ประกาศนียบัตรวิชาชีพชั้นสูง" || row[5] == "39" {
 			student_level = 39
-		} else if row[4] == "ปวช." || row[4] == "ปวช" || row[4] == "ประกาศนียบัตรวิชาชีพ" || row[4] == "29" {
+		} else if row[5] == "ปวช." || row[5] == "ปวช" || row[5] == "ประกาศนียบัตรวิชาชีพ" || row[5] == "29" {
 			student_level = 29
 		} else {
 			student_level = 0
 		}
 
 		dataForm = append(dataForm, domain.StudentForm{
-			StudentId:          row[1],
-			StudentName:        row[2],
-			StudentPhone:       &row[3],
+			GroupId:            &row[1],
+			StudentId:          row[2],
+			StudentName:        row[3],
+			StudentPhone:       &row[4],
 			StudentLevel:       &student_level,
-			StudentImage:       &row[5],
-			AddressNo:          &row[6],
-			AddressLane:        &row[7],
-			AddressRoad:        &row[8],
-			AddressSubDistrict: row[9],
-			AddressDistrict:    row[10],
-			AddressProvince:    row[11],
-			Latitude:           row[12],
-			Longitude:          row[13],
-			ParentName:         row[14],
-			ParentPhone:        row[15],
+			StudentImage:       &row[6],
+			AddressNo:          &row[7],
+			AddressLane:        &row[8],
+			AddressRoad:        &row[9],
+			AddressSubDistrict: row[10],
+			AddressDistrict:    row[11],
+			AddressProvince:    row[12],
+			Latitude:           row[13],
+			Longitude:          row[14],
+			ParentName:         row[15],
+			ParentPhone:        row[16],
 			CreatedBy:          createdBy,
 		})
 	}
